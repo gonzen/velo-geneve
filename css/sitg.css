@@ -1,0 +1,13 @@
+
+html, body { height: 100%; width: 100%; margin: 0; padding: 0; }
+      .tundra .dijitSplitContainer-dijitContentPane, .tundra .dijitBorderContainer-dijitContentPane#navtable { 
+        PADDING-BOTTOM: 5px; MARGIN: 0px 0px 3px; PADDING-TOP: 0px; BORDER-BOTTOM: #000 1px solid; BORDER-TOP: #000 1px solid; BACKGROUND-COLOR: #E5EFF7;
+      }
+      .tundra .dijitSplitContainer-dijitContentPane, .tundra .dijitBorderContainer-dijitContentPane#map {
+        overflow:hidden; border:solid 1px black; padding: 0;
+      }
+      #breadcrumbs {
+        PADDING-RIGHT: 0px; PADDING-LEFT: 11px; FONT-SIZE: 0.8em; FONT-WEIGHT: bold; PADDING-BOTTOM: 5px; MARGIN: 0px 0px 3px; PADDING-TOP: 0px;
+      }
+      #help {
+        PADDING-RIGHT: 11px; PADDING-LEFT: 0px; FONT-SIZE: 0.70em; PADDING-BOTTOM: 5px; MARGIN: 0px 0px 3px; PADDING-TOP: 3px; 

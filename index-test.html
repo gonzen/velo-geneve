@@ -1,0 +1,56 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+  <title>ArcGIS JavaScript API: Plan_Velo</title>
+  <link href='/ags2/rest/ESRI.ArcGIS.Rest.css' rel='stylesheet' type='text/css'>
+  <link href="css/tundra.css" rel="stylesheet">
+
+<script type="text/javascript" src="http://serverapi.arcgisonline.com/jsapi/arcgis?v=2.0"></script>
+<script type="text/javascript">
+  dojo.require("esri.map");
+  dojo.require("dijit.layout.ContentPane");
+  dojo.require("dijit.layout.BorderContainer");
+  var map;
+  function Init() {
+    dojo.style(dojo.byId("map"), { width: dojo.contentBox("map").w + "px", height: (esri.documentBox.h - dojo.contentBox("navTable").h - 40) + "px" });
+    map = new esri.Map("map");
+    var layer = new esri.layers.ArcGISTiledMapServiceLayer("http://etat.geneve.ch/ags2/rest/services/Plan_Velo/MapServer");
+    map.addLayer(layer);
+var resizeTimer;
+                            dojo.connect(map, 'onLoad', function(theMap) {
+                              dojo.connect(dijit.byId('map'), 'resize', function() {
+                                clearTimeout(resizeTimer);
+                                resizeTimer = setTimeout(function() {
+                                  map.resize();
+                                  map.reposition();
+                                 }, 500);
+                               });
+                             });
+  }
+  dojo.addOnLoad(Init);
+</script>
+</head>
+<body class="tundra">
+<table style="width:100%">
+<tr>
+<td>
+<table id="navTable" width="100%">
+<tbody>
+<tr valign="top">
+<td id="breadcrumbs">
+ArcGIS JavaScript API: Plan_Velo
+</td>
+<td align="right" id="help">
+Built using the  <a href="http://resources.esri.com/arcgisserver/apis/javascript/arcgis">ArcGIS JavaScript API</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
+<div id="map" style="margin:auto;width:97%;border:1px solid #000;"></div>
+</body>
+</html>
